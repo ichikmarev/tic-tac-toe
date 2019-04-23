@@ -10,13 +10,13 @@ import java.awt.*;
 public class Main {
 
     public static void main(final String[] args) {
-        JFrame frame = new JFrame(); // создаем окно
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // устанавливаем стандартный тип закрытия
-        frame.setSize(Board.startWidth, Board.startHeight); // задаем размеры окна
-        frame.setTitle("XO"); // задаем название окна
-        frame.add(new SwingStartView(), BorderLayout.CENTER); // ставим стартовую панель в центр
-        frame.setResizable(false); // отключаем возможность изменения окна
-        frame.setLocationRelativeTo(null); // чтобы окно было по центру
-        frame.setVisible(true); // делаем окно видимым
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(Board.startWidth, Board.startHeight);
+        frame.setTitle("Крестики-нолики");
+        frame.add(new SwingStartView(), BorderLayout.CENTER);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }

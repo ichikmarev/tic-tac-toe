@@ -11,51 +11,51 @@ import java.io.IOException;
 public class SwingStartView extends JPanel {
 
     public SwingStartView() {
-        JPanel controlPanel = new JPanel(new FlowLayout()); // создаем панель для кнопок
-        JButton playButton = new JButton("Play default"); // создаем кнопку
-        playButton.addActionListener(e -> { // вешаем перехватчик событий на кнопку
-            GameStarter.defaultStart().theGame(this); // запуск дефолтной игры
+        JPanel controlPanel = new JPanel(new FlowLayout());
+        JButton playButton = new JButton("Играть");
+        playButton.addActionListener(e -> {
+            GameStarter.defaultStart().theGame(this);
         });
-        controlPanel.add(playButton); // добавляем кнопку на панель
+        controlPanel.add(playButton);
 
-        JButton customButton = new JButton("Set custom"); // создаем кнопку для кастомной игры и затем вешаем перехватчик собыитй
+        JButton customButton = new JButton("Создать пользовательскую");
         customButton.addActionListener(e -> {
-            customInput(); // вызываем метод отвечающий за диалоговое окно
+            customInput();
         });
-        controlPanel.add(customButton); // добавляем кнопку на панель
-        JButton infoButton = new JButton("Info");
+        controlPanel.add(customButton);
+        JButton infoButton = new JButton("Информация");
         infoButton.addActionListener(e -> {
             showInfo();
         });
         controlPanel.add(infoButton);
-        BufferedImage titlePicture = null; // подгружаем картинку
+        BufferedImage titlePicture = null;
         try {
             titlePicture = ImageIO.read(this.getClass().getResource("resources/title.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        setLayout(new BorderLayout()); // задаем этой панели BorderLayout
-        add(new JPanel().add(new JLabel(new ImageIcon(titlePicture))), BorderLayout.CENTER); // добавляем лейбл в который вставляем картинку на панель в центр
-        add(controlPanel, BorderLayout.SOUTH); //  добавляем на основную панель кнопки
+        setLayout(new BorderLayout());
+        add(new JPanel().add(new JLabel(new ImageIcon(titlePicture))), BorderLayout.CENTER);
+        add(controlPanel, BorderLayout.SOUTH);
     }
 
     private void customInput() {
-        JDialog result = new SwingCustomView((JFrame) SwingUtilities.windowForComponent(this), this); // получаем доступ к основному экрану
-        result.setPreferredSize(new Dimension(400, 200)); //задаем размеры модального окна
-        result.pack(); // задаем элементу нужный размер
-        result.setResizable(false); // отключаем возможность менять размер окна
-        result.setVisible(true); // поазываем диалоговое окно
+        JDialog result = new SwingCustomView((JFrame) SwingUtilities.windowForComponent(this), this);
+        result.setPreferredSize(new Dimension(400, 200));
+        result.pack();
+        result.setResizable(false);
+        result.setVisible(true);
     }
 
     public void startCustomGame(int boardSize, String playerOneName, String playerTwoName, String gameName) {
-        GameStarter.customStart(boardSize,playerOneName,playerTwoName, gameName).theGame(this); // метод вызываемый из диалогового окна, запускает кастомную игру со статами
+        GameStarter.customStart(boardSize,playerOneName,playerTwoName, gameName).theGame(this);
     }
 
     private void showInfo() {
-        JDialog result = new SwingInfoView(); // получаем доступ к основному экрану
-        result.setPreferredSize(new Dimension(400, 150)); //задаем размеры модального окна
-        result.pack(); // задаем элементу нужный размер
-        result.setResizable(false); // отключаем возможность менять размер окна
-        result.setVisible(true); // поазываем диалоговое окно
+        JDialog result = new SwingInfoView();
+        result.setPreferredSize(new Dimension(400, 250));
+        result.pack();
+        result.setResizable(false);
+        result.setVisible(true);
     }
 }

@@ -11,8 +11,8 @@ public class GameStarter {
     public static Game defaultStart(){
         final int boardSize = 3;
         final String gameName = "XO";
-        final String playerOneName = "PLAYER X";
-        final String playerTwoName = "PLAYER O";
+        final String playerOneName = "Игрок 'X'";
+        final String playerTwoName = "Игрок 'O'";
         return customStart(boardSize,playerOneName,playerTwoName, gameName);
     }
 
