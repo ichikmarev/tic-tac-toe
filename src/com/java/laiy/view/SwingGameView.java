@@ -23,7 +23,9 @@ public class SwingGameView extends JPanel {
             for(int j = 0; j < boardSize; j++) {
                 JButton buffButton = new JButton("");
 
-                buffButton.setFont(new Font("Arial", Font.PLAIN, (int)Board.startWidth/boardSize));
+                int size = (int)Board.startWidth/(int)(boardSize*1.5);
+
+                buffButton.setFont(new Font("Arial", Font.PLAIN, size));
 
                 int bufI = i;
                 int bufJ = j;
